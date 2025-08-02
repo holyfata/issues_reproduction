@@ -1,3 +1,12 @@
 [submodule "rspress"]
 	path = rspress
 	url = git@github.com:holyfata/rspress.git
+[submodule "nutui"]
+	path = nutui
+	url = git@github.com:holyfata/nutui.git
+[submodule "taro-docs"]
+	path = taro-docs
+	url = git@github.com:holyfata/taro-docs.git
+[submodule "taro"]
+	path = taro
+	url = git@github.com:holyfata/taro.git
