@@ -1,0 +1,3 @@
+[submodule "rspress"]
+	path = rspress
+	url = git@github.com:holyfata/rspress.git
