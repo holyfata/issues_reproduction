@@ -11,7 +11,7 @@ module.exports = {
     [
       "import",
       {
-        "libraryName": "@nutui/nutui-react-taro",
+        "libraryName": "@nutui/nutui-react",
         "libraryDirectory": "dist/esm",
         "style": 'css',
         "camel2DashComponentName": false
