@@ -10,3 +10,6 @@
 [submodule "taro"]
 	path = taro
 	url = git@github.com:holyfata/taro.git
+[submodule "nutui-react"]
+	path = nutui-react
+	url = git@github.com:holyfata/nutui-react.git
