@@ -1,4 +1,5 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli'
+import vitePluginImp from 'vite-plugin-imp'
 
 import devConfig from './dev'
 import prodConfig from './prod'
@@ -29,7 +30,28 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
       }
     },
     framework: 'react',
-    compiler: 'vite',
+    compiler: {
+      type: 'vite',
+      vitePlugins: [
+        vitePluginImp({
+          libList: [
+            {
+              libName: '@nutui/nutui-react-taro',
+              style: (name) => {
+                // 默认主题
+                // 按需引入 css 文件的处理，两种方式择其一
+                return `@nutui/nutui-react-taro/dist/es/packages/${name.toLowerCase()}/style/style.css`
+              },
+              replaceOldImport: false,
+              camel2DashComponentName: false,
+            },
+          ],
+        })
+      ]
+    },
+    sass: {
+      resource: ['node_modules/@nutui/nutui-react-taro/dist/styles/variables.scss']
+    },
     mini: {
       postcss: {
         pxtransform: {
