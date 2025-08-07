@@ -7,5 +7,20 @@ module.exports = {
       ts: true,
       compiler: 'webpack5',
     }]
+  ],
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: '@nutui/nutui-react-taro',
+        camel2DashComponentName: false,
+        customName: (name, file) => {
+          return `@nutui/nutui-react-taro/dist/es/packages/${name.toLowerCase()}`
+        },
+        customStyleName: (name) =>
+          `@nutui/nutui-react-taro/dist/es/packages/${name.toLowerCase()}/style/style.css`
+      },
+      'nutui-react-taro',
+    ],
   ]
 }
