@@ -18,7 +18,40 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
     sourceRoot: 'src',
     outputRoot: 'dist',
     plugins: [
-      "@tarojs/plugin-generator"
+      "@tarojs/plugin-generator",
+      ['@tarojs/plugin-inject', {
+        // components: {
+        //   Text: {
+        //     'x-props': "'hello'",
+        //     bindYEvent: ''
+        //   },
+        //   ShareElement: {
+        //     key: "",
+        //     transform: "true",
+        //     duration: "300",
+        //     "easing-function": ""
+        //   }
+        // },
+        // componentsMap: {
+        //   ShareElement: 'share-element'
+        // },
+        // voidComponents: ['view'],
+        voidComponents (origin) {
+          // 现在 audio 能渲染子组件了
+          origin.delete('audio')
+          return origin
+        },
+        nestElements: {
+          'swiper': 2,
+          'swiper-item': 2
+        },
+        thirdPartyComponents: {
+          // 为 `van-empty` 组件的 image 属性设置默认值 'default'
+          'van-empty': {
+            'image': "'default'"
+          }
+        }
+      }]
     ],
     defineConstants: {
     },
